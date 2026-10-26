@@ -1,4 +1,7 @@
 streamlit
-pandas
 langchain-openai
-langchain-experimental
+langchain-community
+langchain-classic
+pypdf
+rank-bm25
+jieba

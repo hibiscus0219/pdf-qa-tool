@@ -4,13 +4,10 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_classic.chains import ConversationalRetrievalChain
-from langchain_classic.agents import create_structured_chat_agent
-from langchain_classic.agents import AgentExecutor
-from langchain_experimental.tools import PythonREPLTool
-from langchain_classic.tools import Tool
 
-def qa_agent(deepseek_api_key,memory,uploaded_file,question):
-    model = ChatOpenAI(model="deepseek_chat",deepseek_api_key=deepseek_api_key,base_url="https://api.deepseek.com")
+
+def qa_agent(moonshot_api_key,memory,uploaded_file,question):
+    model = ChatOpenAI(model="kimi-k2.6",moonshot_api_key=moonshot_api_key,base_url="https://api.moonshot.cn/v1")
     file_content=uploaded_file.read()
     temp_file_path="temp.pdf"
     with open(temp_file_path,"wb") as temp_file:

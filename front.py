@@ -4,7 +4,7 @@ from langchain_classic.memory import ConversationBufferMemory
 
 st.title("PDF问答AI")
 with st.sidebar:
-    deepseek_api_key=st.text_input("Enter your DEEPSEEK API key",type="password")
+    moonshot_api_key=st.text_input("Enter your MOONSHOT API key",type="password")
 if "memory" not in st.session_state:
     st.session_state["memory"]=ConversationBufferMemory(
         return_messages=True,
@@ -13,8 +13,8 @@ if "memory" not in st.session_state:
     )
 uploaded_file=st.file_uploader("Upload your file",type="pdf")
 question=st.text_input("Enter your question",disabled=not uploaded_file)
-if uploaded_file and question and deepseek_api_key:
-    response=qa_agent(deepseek_api_key,st.session_state["memory"],uploaded_file,question)
+if uploaded_file and question and moonshot_api_key:
+    response=qa_agent(moonshot_api_key,st.session_state["memory"],uploaded_file,question)
     st.write("解答：")
     st.write(response["answer"])
     st.session_state["chat_history"] = response["chat_history"]
